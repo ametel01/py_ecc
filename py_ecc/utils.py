@@ -53,7 +53,7 @@ def poly_rounded_div(a: Sequence[IntOrFQ], b: Sequence[IntOrFQ]) -> Tuple[IntOrF
     temp = [x for x in a]
     o = [0 for x in a]
     for i in range(dega - degb, -1, -1):
-        o[i] += int(temp[degb + i] / b[degb])
+        o[i] += int(temp[degb + i] // b[degb])
         for c in range(degb + 1):
             temp[c + i] -= o[c]
     return cast(Tuple[IntOrFQ, ...], tuple(o[: deg(o) + 1]))
